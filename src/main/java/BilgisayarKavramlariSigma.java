@@ -12,6 +12,10 @@ public class BilgisayarKavramlariSigma {
         int sonuc = 0;
         for (int x = -r; x <= r; x++) {
             for (int y = -r; y <= r; y++) {
+                //orta nokta problemine göre x, y koordinatlarının karelerinin 
+                //toplamının yarı çapının karesinin farkı 0 ise çember üzerinde
+                //degilse 0 dan küçükse çemberin içi yada 0 dan büyükse dışındadır.
+                //x ve y koordinatları 0 ise orta nokta ya sigma konur.
                 boolean sifirMi = isZero(sonuc, x, y, r);
                 if (sifirMi) {
                     System.out.print("*");
