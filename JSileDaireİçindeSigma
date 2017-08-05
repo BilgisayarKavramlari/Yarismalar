@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<script src="http://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+
+<body>
+  <button type="button" id="btn">Oluştur</button>
+  <input type="text" id="giris1" placeholder="Yarıçap giriniz">
+  <br/><br/>
+  <canvas id="myCanvas" width="1000" height="1000" style="border:1px solid #d3d3d3;"></canvas>
+
+
+
+</body>
+<script>
+  $("#btn").click(function() {
+
+    var c = document.getElementById("myCanvas");
+    var ctx = c.getContext("2d");
+
+    ctx.beginPath();
+    ctx.fillStyle = "#ffffff";
+    ctx.fillRect(0, 0, 1000, 1000);
+    ctx.closePath();
+    ctx.fill();
+
+    var sayi1 = document.getElementById("giris1").value;
+
+
+    ctx.beginPath();
+    ctx.arc(500, 500, sayi1, 0, 2 * Math.PI);
+    ctx.font = "30px Verdana";
+    
+    var gradient = ctx.createLinearGradient(0, 0, c.width, 0);
+    gradient.addColorStop("0", "magenta");
+    gradient.addColorStop("0.5", "blue");
+    gradient.addColorStop("1.0", "red");
+    
+    ctx.fillStyle = gradient;
+    ctx.fillText("Σ", 500, 500);
+    ctx.stroke();
+    ctx.clear();
+  });
+</script>
+
+</html>
