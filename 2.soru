@@ -1,0 +1,53 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+main(){
+	printf("\n Not: Ornek liste = {AB,BC,AC}  seklinde olmalidir,fazla bosluk koymayin.\n\n");
+	char liste[1000];
+	int matrix[26][26],i,j;
+	int flag,top=0,sonuc;
+	printf("\n Listeyi girin = ");
+	scanf("%s",&liste);
+	
+	for(i=0;i<26;i++){for(j=0;j<26;j++){matrix[i][j]=0;}} //SIFIR MATRİXİ OLUŞUR
+		
+		
+	for(i=1;i<strlen(liste);)
+	{ 	
+		matrix[liste[i]-65][liste[i+1]-65]=1;
+		matrix[liste[i+1]-65][liste[i]-65]=1;
+		i=i+3;
+	}
+	
+/*	printf("\n\n Matrix: \n\n");       
+	
+	for(i=0;i<26;i++){                  BU KISIM OLUŞAN MATRİXİ GÖRMEK İÇİN 
+		
+		for(j=0;j<26;j++){
+			
+		    printf("%d ",matrix[i][j]);
+		}
+		printf("\n");
+	}  */
+	
+
+	for(flag=2;flag<27;flag++)
+	{
+		for(i=0;i<flag;i++){
+		
+			for(j=0;j<flag;j++){
+				
+				top=top+matrix[i][j];				
+			}
+		}
+			if(top==flag*(flag-1)){sonuc=flag;}
+			top=0;
+			
+	}
+	
+	
+	printf("\n En Buyuk Klik Sayisi : %d ",sonuc);
+	printf("\n\n");
+	system("pause");
+	return 0;
+}
